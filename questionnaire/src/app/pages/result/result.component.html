@@ -1,0 +1,27 @@
+<div class="container result py-3">
+  <h1>Результаты</h1>
+  <section class="result-questions">
+    <div class="result-question mb-3" *ngFor="let question of questionsList; let i = index">
+      <div class="d-flex">
+        <span class="font-weight-bolder">
+          {{i + 1}}. {{question.text}}
+        </span>
+      </div>
+      <div class="d-flex flex-column mt-3" *ngIf="results[i] && results[i].answerIndexes.length > 0">
+        <div class="d-flex align-items-center mb-3 bg-success" *ngFor="let answer of results[i].answerIndexes">
+          <mat-icon>check</mat-icon>
+          <span class="mx-3">{{question.answers[answer]}}</span>
+        </div>
+      </div>
+      <div class="d-flex flex-column mt-3" *ngIf="!results[i]">
+        <div class="d-flex align-items-center mb-3 bg-danger">
+          <mat-icon>close</mat-icon>
+          <span class="mx-3">Нет ответа</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  <button class="btn-sm mb-5" type="submit">
+    <a routerLink="/create" (click)="clearCookie()">Завершить</a>
+  </button>
+</div>

@@ -1,0 +1,15 @@
+.toast-item {
+  display: flex;
+  flex-direction: column;
+  width: 160px;
+  padding: 8px 4px;
+  margin: 8px;
+  border-radius: 3px;
+  //z-index: 1000;
+  .toast-item__left {
+
+  }
+  .toast-item__btn {
+    cursor: pointer;
+  }
+}

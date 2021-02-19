@@ -1,0 +1,56 @@
+<div class="forAdmin">
+    <div class="product">
+      <section class="product-add">
+        <form [formGroup]="firstForm">
+          <div class="d-flex mb-3">
+            <h1>Add Product</h1>
+            <input
+              type="text"
+              name="product"
+              [formControl]="categoryCtrl"
+              placeholder="Category"
+              class="w-50 mr-3"
+            />
+            <input
+              type="text"
+              name="product"
+              [formControl]="nameCtrl"
+              placeholder="Name"
+              class="w-50 mr-3"
+            />
+            <input
+              type="number"
+              name="product"
+              [formControl]="priceCtrl"
+              placeholder="Price"
+              class="w-50 mr-3"
+            />
+            <input
+              type="url"
+              name="product"
+              [formControl]="urlCtrl"
+              placeholder="url"
+              class="w-50 mr-3"
+            />
+          </div>
+          <button mat-stroked-button class="btn-lg" type="submit" (click)="addProduct()">Добавить</button>
+        </form>
+      </section>
+      <section class="product-add">
+        <form [formGroup]="firstForm">
+          <div class="d-flex mb-3">
+            <h1>Delete Product</h1>
+            <input
+              type="text"
+              name="product"
+              [formControl]="dnameCtrl"
+              placeholder="Name"
+              class="w-50 mr-3"
+            />
+          </div>
+          <button mat-stroked-button class="btn-lg" type="submit" (click)="deleteProduct()">Удалить</button>
+        </form>
+      </section>
+    </div>    
+  </div>
+  <button mat-stroked-button class="btn" color="accent" (click) = "logoutAdmin()">Logout</button>

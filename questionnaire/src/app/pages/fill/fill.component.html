@@ -1,0 +1,33 @@
+<div class="container fill py-3">
+  <section class="fill-info mb-3">
+    <h1>{{title}}</h1>
+    <div class="d-flex justify-content-between">
+      <p>Опрос</p>
+      <h2>{{ ((timeLeft - (timeLeft % 60)) / 60) }}:{{timeLeft%60}}</h2>
+    </div>
+    <p class="text-danger">* Обязательно</p>
+  </section>
+  <section class="fill-questions">
+    <div class="fill-question mb-3" *ngFor="let question of questionsList; let i = index">
+      <div class="d-flex">
+        <span class="font-weight-bolder">
+          {{i + 1}}. {{question.text}}<b class="text-danger ml-2">*</b>
+        </span>
+      </div>
+      <div class="d-flex flex-column mt-3">
+        <div class="d-flex align-items-center mb-3" *ngFor="let answer of question.answers, let index = index">
+          <input
+            [type]="question.type.toString() === '0' ? 'radio' : 'checkbox'"
+            [value]="answer"
+            [name]="question.type.toString() === '0' ? 'nameOfRadio' + i : 'nameofradio' + index"
+            (click)="inputClicked(i, index, question.type)"
+          />
+          <span class="mx-3">{{answer}}</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  <button class="btn-sm mb-5" type="submit" [disabled]="results.length < questionsList.length || results.includes(undefined)">
+    <a routerLink="/result" (click)="showResults()">Закончить</a>
+  </button>
+</div>

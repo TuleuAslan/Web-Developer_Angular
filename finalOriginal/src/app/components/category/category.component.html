@@ -1,0 +1,67 @@
+<div class="main">
+  <div class="categories">
+    <mat-selection-list #shoes [multiple]="false">
+      <mat-list-option *ngFor="let c of categories" [value]="category.name" (click) = "showCategoryProducts(c)">
+        {{c.name}}
+      </mat-list-option>
+    </mat-selection-list>
+    <!-- <p class="d-flex flex-row mb-3">
+      Category selected: {{shoes.selectedOptions.selected[0]?.value}}
+    </p> -->
+    <div class = "loggedUser" *ngIf = "loggedUser">
+      <mat-card>
+        <img mat-card-img class ="pipec" src="http://www.portrait-photography.ie/wp-content/uploads/2014/12/family-portrait-photography-by-anna-nowakowska-1-of-1-21.jpg" alt="">
+        <div class = "info">
+          <h1>{{user.name}}</h1>
+          <p>{{user.username}}</p>
+          <button mat-raised-button color="warn" (click) = "logout()">Logout</button>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+  <div class="products">
+    <!-- <app-product [category] = "category"></app-product>  -->
+    <mat-drawer-container class="example-container" [hasBackdrop]="false">
+      <mat-drawer #drawer>
+        <p *ngIf="emptyCart" class="emptyCart">No Products in Cart</p>
+        <div class="product-list-cart" *ngIf = "!emptyCart">
+          <div class="product-cart" *ngFor="let p of inCart; let i = index;">           
+              <mat-card class="example-card-cart">
+                  <img mat-card-image [src]="p.url" alt="Photo">
+                  <mat-card-header class="info-cart">
+                  <!-- <mat-card-title *ngIf="this.user">{{user.name}}</mat-card-title> -->
+                  <mat-card-subtitle>{{p.name}}</mat-card-subtitle>
+                  <mat-card-subtitle>{{p.price}} Tenge </mat-card-subtitle>
+                  <mat-card-subtitle>
+                    <button class = "btn-cart" mat-stroked-button color="accent" (click)="removeFromCart(p)">Cancel</button></mat-card-subtitle>
+                  </mat-card-header>
+              </mat-card>
+          </div>
+          <div class="buy">
+            <mat-label><h1>{{sum}}  tenge </h1></mat-label>
+            <button class = "btn-cart" mat-raised-button color="warn" (click)="openSnackBar()" [disabled] = "!loggedUser">Buy</button>
+          </div>
+        </div>
+      </mat-drawer>
+      <mat-drawer-content>
+        <!-- <h1 style="text-align: center; font-weight: 500; margin: 20px 0" *ngIf="products">Products of {{Pro.title}}</h1> -->
+        <div class="product-list">
+            <div class="product" *ngFor="let p of products; let i = index;">           
+                <mat-card class="example-card">
+                    <img mat-card-image [src]="p.url" alt="Photo">
+                    <mat-card-header class="info">
+                    <!-- <mat-card-title *ngIf="this.user">{{user.name}}</mat-card-title> -->
+                    <mat-card-subtitle>{{p.name}}</mat-card-subtitle>
+                    <mat-card-subtitle>{{p.price}} Tenge </mat-card-subtitle>
+                    <mat-card-subtitle>
+                      <button mat-stroked-button color="accent" (click)="addToCart(p)">To Cart</button></mat-card-subtitle>
+                    </mat-card-header>
+                </mat-card>
+            </div>
+        </div>
+        <!-- <button mat-raised-button (click)="drawer.toggle()">Toggle drawer</button> -->
+        <mat-icon [matBadge]="badge" matBadgeColor="warn" (click) = "drawer.toggle()">shopping_cart</mat-icon>
+      </mat-drawer-content>
+    </mat-drawer-container>
+  </div>
+</div>

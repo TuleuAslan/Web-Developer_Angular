@@ -1,0 +1,11 @@
+<div class="modal-dialog" role="document">
+  <div [ngClass]="isSuccess !== 0 ? 'modal-content bg-success' : 'modal-content bg-danger'">
+    <div class="modal-header"><span class="modal-title font-weight-bold" *ngIf="showTitle">{{title}}</span>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="close()" *ngIf="hasCloseBtnCtrl"><span aria-hidden="">X</span></button>
+    </div>
+    <div class="modal-body">
+      <span>{{content}}</span>
+    </div>
+    <div class="basic-container my-2" *ngIf="showDuration && progressbarValue > 0"><mat-progress-bar mode="determinate" [value]="progressbarValue"></mat-progress-bar></div>
+  </div>
+</div>

@@ -1,0 +1,133 @@
+.page {
+  width: 100%;
+  height: 100vh;
+  .calculator {
+    width: 270px;
+    background-color: #E1E2E9;
+    padding: 3px;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+    border-radius: 2px;
+    .head-block {
+      span {
+        font-size: 12px;
+      }
+      button {
+        height: 20px;
+        display: flex;
+        align-items: center;
+        margin: 0 2px;
+        background: none;
+        outline: none;
+        border: none;
+        &:hover {
+          background-color: rgb(220,220,220);
+        }
+      }
+    }
+    .restore {
+      font-size: 20px;
+      padding-right: 10px;
+      padding-left: 4px;
+      img {
+        width: 16px;
+        height: 16px;
+        cursor: pointer;
+        &:hover {
+          border: 1px solid gray;
+        }
+      }
+    }
+    .input-field {
+      width: 100%;
+      height: 64px;
+      label {
+        width: 100%;
+        height: 16px;
+        display: flex;
+        justify-content: flex-end;
+        padding: 0 4px;
+        font-size: 12px;
+      }
+      input {
+        width: 100%;
+        height: 48px;
+        font-size: 36px;
+        text-align: end;
+        background: none;
+        outline: none;
+        border: none;
+        color: black;
+
+      }
+    }
+    .memory-btn {
+      button {
+        font-size: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 52.8px;
+        height: 20px;
+        background: none;
+        outline: none;
+        border: none;
+        &:hover {
+          background-color: rgb(220,220,220);
+        }
+      }
+    }
+    .big-btn {
+      .operation {
+        background-color: rgb(245,245,245);
+      }
+      .number {
+        background: #FFFFFF;
+      }
+      button {
+        width: 64px;
+        height: 40px;
+        margin: 1px;
+        outline: none;
+        border: none;
+        &:hover {
+          background-color: rgb(220,220,220);
+        }
+      }
+    }
+    .history {
+      position: absolute;
+      width: 264px;
+      height: 252px;
+      bottom: calc(50% - 207px);
+      background-color: lightgray;
+      .history__list {
+        height: 236px;
+        overflow: auto;
+        .history__item {
+          padding: 4px 12px;
+          text-align: right;
+          cursor: pointer;
+          .history__item-text {
+            font-size: 12px;
+          }
+          .history__item-result {
+            font-size: 24px;
+            font-weight: bolder;
+          }
+          &:hover {
+            box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+          }
+        }
+      }
+      .trash-div {
+        padding-top: 4px;
+        padding-right: 8px;
+        img {
+          width: 16px;
+          height: 16px;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}

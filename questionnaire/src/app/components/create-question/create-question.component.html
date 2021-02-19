@@ -1,0 +1,58 @@
+<div class="question">
+  <section class="question-add">
+    <form [formGroup]="questionForm">
+      <div class="d-flex mb-3">
+        <input
+          type="text"
+          name="question"
+          [formControl]="questionCtrl"
+          placeholder="Вопрос"
+          class="w-50 mr-3"
+        />
+        <select class="custom-select w-50" [formControl]="selectCtrl">
+          <option [ngValue]="0">Один из списка</option>
+          <option [ngValue]="1">Несколько из списка</option>
+        </select>
+
+      </div>
+      <form [formGroup]="answerForm">
+        <div class="d-flex mb-3">
+          <input
+            type="text"
+            name="answer"
+            placeholder="Ответ"
+            class="w-50 mr-5"
+            [formControl]="answerCtrl"
+          />
+          <button class="btn-sm" type="submit" [disabled]="answerForm.invalid" (click)="addAnswer()">Добавить ответ</button>
+        </div>
+      </form>
+      <div class="answer-list pb-4">
+        <div class="d-flex answer-item mt-3" *ngFor="let answer of answersList">
+          <mat-icon>panorama_fish_eye</mat-icon>
+          <span class="mx-3">{{answer}}</span>
+          <mat-icon class="ml-auto" (click)="removeAnswer(answer)">close</mat-icon>
+        </div>
+      </div>
+      <button class="btn-lg" type="submit" [disabled]="questionForm.invalid || answersList.length === 0" (click)="addQuestion()">Добавить</button>
+    </form>
+  </section>
+  <section class="questions-list mt-5">
+    <h1>Вопросы</h1>
+    <div class="question-item mb-3" *ngFor="let question of questionsList; let i = index">
+      <div class="d-flex">
+        <span class="font-weight-bolder">{{i + 1}}. {{question.text}}</span>
+        <mat-icon class="ml-auto" (click)="removeQuestion(question)">close</mat-icon>
+      </div>
+      <div class="d-flex flex-column mt-3">
+        <div class="d-flex mb-3" *ngFor="let answer of question.answers">
+          <mat-icon>panorama_fish_eye</mat-icon>
+          <span class="mx-3">{{answer}}</span>
+        </div>
+      </div>
+    </div>
+  </section>
+  <button class="btn-sm mb-5" type="submit" [disabled]="questionsList.length < 1">
+    <a routerLink="/fill">Готова</a>
+  </button>
+</div>

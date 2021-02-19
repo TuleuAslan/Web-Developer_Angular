@@ -1,0 +1,16 @@
+.container {
+    width: auto;
+    text-align: center;
+    font-family: cursive;
+    color: #75FF33;
+} 
+mat-icon {
+    margin-left: auto;
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: left;
+    cursor: pointer;
+}
+mat-label {
+    cursor: pointer;
+}

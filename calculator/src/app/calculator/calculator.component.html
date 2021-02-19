@@ -1,0 +1,82 @@
+<div class="page d-flex justify-content-center align-items-center">
+  <div class="calculator d-flex flex-column">
+    <div class="head-block d-flex justify-content-between align-items-center px-1">
+      <span>Калькулятор</span>
+      <div class="d-flex">
+        <button>–</button>
+        <button>☐</button>
+        <button>x</button>
+      </div>
+    </div>
+    <div class="restore d-flex justify-content-between align-items-center my-2">
+      <div>
+        <img src='../../assets/images/Hamburger_icon.svg' alt="hamburger icon"/>
+        <span class="ml-2">Обычный</span>
+      </div>
+      <img src='../../assets/images/restore.svg' alt="restore icon" class="his-icon" (click)="showHistory()"/>
+    </div>
+    <div class="input-field d-flex flex-column align-items-center mb-2">
+      <label>{{this.text}}</label>
+      <input placeholder="0" [value]="currentNum" disabled/>
+    </div>
+    <div class="memory-btn d-flex mb-1">
+      <button (click)="memoryClearClick()" [disabled]="!savedNumber">MC</button>
+      <button (click)="memoryReadClick()" [disabled]="!savedNumber">MR</button>
+      <button (click)="memoryPlusClick()">M+</button>
+      <button (click)="memoryMinusClick()">M-</button>
+      <button (click)="memorySaveClick()">MS</button>
+    </div>
+    <div class="big-btn">
+      <div class="d-flex">
+        <button class="operation" (click)="calcAdditionalOperation('%')">%</button>
+        <button class="operation" (click)="calcAdditionalOperation('√')">√</button>
+        <button class="operation" (click)="calcAdditionalOperation('x^2')">x^2</button>
+        <button class="operation" (click)="calcAdditionalOperation('1/x')">1/x</button>
+      </div>
+      <div class="d-flex">
+        <button class="operation" (click)="onClearEntryClick()">CE</button>
+        <button class="operation" (click)="onClearClick()">C</button>
+        <button class="operation" (click)="onBackSpaceClick()">⌫</button>
+        <button class="operation" (click)="onClickOperation('÷')">÷</button>
+      </div>
+      <div class="d-flex">
+        <button class="number" (click)="onClickNumber(7)">7</button>
+        <button class="number" (click)="onClickNumber(8)">8</button>
+        <button class="number" (click)="onClickNumber(9)">9</button>
+        <button class="operation" (click)="onClickOperation('x')">x</button>
+      </div>
+      <div class="d-flex">
+        <button class="number" (click)="onClickNumber(4)">4</button>
+        <button class="number" (click)="onClickNumber(5)">5</button>
+        <button class="number" (click)="onClickNumber(6)">6</button>
+        <button class="operation" (click)="onClickOperation('-')">-</button>
+      </div>
+      <div class="d-flex">
+        <button class="number" (click)="onClickNumber(1)">1</button>
+        <button class="number" (click)="onClickNumber(2)">2</button>
+        <button class="number" (click)="onClickNumber(3)">3</button>
+        <button class="operation" (click)="onClickOperation('+')">+</button>
+      </div>
+      <div class="d-flex">
+        <button class="operation" (click)="clickReverseNum()">±</button>
+        <button class="number" (click)="onClickNumber(0)">0</button>
+        <button class="operation" (click)="onClickDot()">,</button>
+        <button class="operation" (click)="onClickEqual()">=</button>
+      </div>
+    </div>
+    <div class="history d-flex flex-column py-2" *ngIf="this.isHistoryVisible">
+      <div class="history__list">
+        <div class="history__item d-flex flex-column" *ngFor="let n of this.historyList">
+          <span class="history__item-text">{{n.text}}</span>
+          <span class="history__item-result">{{n.result}}</span>
+        </div>
+        <div class="pl-2" *ngIf="historyList.length === 0">
+          Журнала еще нет
+        </div>
+      </div>
+      <div class="trash-div d-flex justify-content-end mt-auto">
+        <img src='../../assets/images/trash-512.svg' alt="trash icon" (click)="clearHistory()"/>
+      </div>
+    </div>
+  </div>
+</div>

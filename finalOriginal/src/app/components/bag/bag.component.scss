@@ -1,0 +1,36 @@
+.info-cart {
+    // padding-left: 30px;
+    width: auto;
+    height: auto;
+}
+mat-card-subtitle{
+    font-size: 12px;
+}
+.product-list-cart {
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: left;
+  }
+  .product-cart {
+    padding-bottom: 10px;
+    padding-left: 15px;
+    width: 150px;
+    height: 100px;
+    margin-bottom: 10px;
+  }
+  .product-cart img {
+    margin-left: 15px;
+    width: 70px;
+    height: 70px;
+    margin-top: 5px;
+  }
+.example-card-cart{
+    display: block  ;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+.btn-cart {
+
+}

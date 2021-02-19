@@ -1,0 +1,56 @@
+.toasts-page {
+  padding: 24px;
+  .toasts-page__form {
+    input {
+      width: 300px;
+    }
+  }
+}
+
+.show-toasts {
+  .top-start {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  .top-center {
+    position: absolute;
+    top: 0;
+    right: 40%;
+  }
+  .top-end {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+  .center-start {
+    position: absolute;
+    top: 50%;
+    left: 0;
+  }
+  .center-center {
+    position: absolute;
+    top: 50%;
+    right: 40%;
+  }
+  .center-end {
+    position: absolute;
+    top: 50%;
+    right: 0;
+  }
+  .bottom-start {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+  .bottom-center {
+    position: absolute;
+    bottom: 0;
+    right: 40%;
+  }
+  .bottom-end {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+}
